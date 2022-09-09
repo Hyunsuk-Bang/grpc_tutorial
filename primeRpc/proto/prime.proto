@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package prime;
+
+option go_package = "primeRpc/proto"; 
+
+message Request{
+    uint64 input = 1;
+}
+
+message Response {
+    uint64 output = 2;
+}
+
+service Prime{
+    rpc Decompose (Request) returns (stream Response);
+}
