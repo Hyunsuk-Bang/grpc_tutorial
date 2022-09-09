@@ -1,0 +1,67 @@
+need to agree on API to exchange data
+Data format
+Error Pattern
+and etc....
+
+When we build API we need to think about
+- payload size
+- latency
+- Scalability
+- Load Balancing
+- Language interoperability
+
+GRPC - Google Remote Procedure Call 
+small payload size
+Json 53 bytes, protocol Buffer: 17 bytes
+Passing Json is quite CPU intensive since Json format is human readable
+Protocol Buffer is less CPU intensive - good for mobile and micro Controller
+
+
+====================THEORY==========================
+Protocol Bufer and Language Interoperability
+
+Ues on HTTP2
+- Data is compreesed in Binary Data
+- SSL required
+
+
+================= Types of API in gRPC=================
+Unary Api
+Client ->  <- Server
+
+SErver Streaming
+Client -> <- <- <- <- ... Server
+Userful when client want real-time update
+
+Client Streaming 
+Client -> -> -> -> -> <- Server
+
+Bi-directional Streaming
+Client -> -> -> -> <- <- <- <- <- Server
+
+================= Scalability in gRPC ==================
+Server: Async
+Client: Async or Blocking
+
+
+============= Security in gRPC ======================
+Schema based serialization -- non human readable
+Easy SSL certificates initializaion
+Interceptors for Auth
+
+
+=============== gRPC vs REST ==========================
+Protocol Buffer     |   JSON
+HTTP2               |   HTTP1
+Streaming           |   Unary, Request and Response
+Bi directional      |   Client -> SErver
+Free Design         |   GET/POST/UPDATE/DELETE
+
+
+why use grpc??
+- code Generation
+- more secure
+- Also support Streaming
+- API oriented
+
+ 
